@@ -1,0 +1,15 @@
+Data1<- read.csv("C:/Users/yi/Desktop/Cincs/Database/NOAA/1995-1999.csv")
+Data2<- read.csv("C:/Users/yi/Desktop/Cincs/Database/NOAA/2000-2004.csv")
+Data3<- read.csv("C:/Users/yi/Desktop/Cincs/Database/NOAA/2005-2007.csv")
+Data4<- read.csv("C:/Users/yi/Desktop/Cincs/Database/NOAA/2008-2011.csv")
+Data5<- read.csv("C:/Users/yi/Desktop/Cincs/Database/NOAA/2012-2013.csv")
+Data6<- read.csv("C:/Users/yi/Desktop/Cincs/Database/NOAA/2014-2015.csv")
+Data <- rbind(Data1,Data2,Data3,Data4,Data5,Data6)
+fix(Data)
+names(Data)
+City <- paste(Data$CZ_NAME_STR)
+Damage <- Data$DAMAGE_PROPERTY_NUM+Data$DAMAGE_CROPS_NUM
+Output <- cbind(City,Damage)
+fix(Output)
+write.csv(Output,"C:/Users/yi/Desktop/Output.csv")
+
